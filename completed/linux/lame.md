@@ -4,8 +4,7 @@
 
 ## ENUMERATION
 
-I started off by adding the ip address of the machine to my /etc/hosts file and giving it the name lame.htb. Next I executed the following scans using NMAP:
-
+I started by adding the ip address of the machine to my /etc/hosts file and giving it the hostname of lame.htb. Next I executed the following scan using NMAP:
 ```text
 nmap lame.htb -sV -A -p- -T4 -Pn
 ```
@@ -25,10 +24,9 @@ From this scan we can see the following services:
 - Samba on port 139/445 (3.0.20-Debian)
 - Distccd on port 3632 (v1 4.2.4)
 
-
-
-
 ## EXPLOITATION
+
+TO FINISH THIS REPORT!
 
 ## PRIVILEGE ESCALATION 
 
