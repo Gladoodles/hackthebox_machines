@@ -11,7 +11,11 @@
 **Steps to reproduce the attack**: Using NMAP to enumerate the services running on the host, called Lame. Access to the system was gained by running exploits using the Metasploit Framework for the Samba and ddistccd services resulting in root privileges. 
 
 ## ENUMERATION
+| **IP ADDRESS** | **OPEN PORTS** |
+|----------|--------------------|
+| 10.10.10.3 | TCP: 21, 22, 139, 445, 3632 |
 
+The following NMAP scan was executed which discovered a number of open ports. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/933e9f64-e0cf-4216-9eea-5b7a86fdacaa)
 
