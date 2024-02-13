@@ -19,13 +19,26 @@ The following NMAP scan was executed which discovered a number of open ports.
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/933e9f64-e0cf-4216-9eea-5b7a86fdacaa)
 
-
-
 ## EXPLOITATION
 
-TO FINISH THIS REPORT!
+##### **Samba 3.0.20**
+
+The /tmp and /IPC$ shares were not password protected and some files were downloaded, however, they did not yield any credentials. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/4accf14b-ab42-492e-8c72-8d3afb407e29)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/88b34184-807c-4e68-bfe4-33b826cb5921)
+
+Using the Metasploit Framework we used the Samba "username map script" command execution exploit to obtain a root shell. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/34efd60a-3904-46db-bb83-ddabbc8c87f4)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/30032405-5c69-41b7-89d5-cb497e58d3dc)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9a52b04b-d393-476c-b827-d64a4d61419f)
+
+TO FINISH THIS!!
 
 ## PRIVILEGE ESCALATION 
+
+
 
 ## POST-EXPLOITATION 
 
