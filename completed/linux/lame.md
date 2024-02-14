@@ -39,6 +39,12 @@ Running the command 'whoami' we can see that we have gained root privileges.
 
 #### **3.2 - distccd**
 
+Using Metasploit module distcc_exec we can gain a shell as a low privileged user. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/97f4c016-a8f9-480f-9f70-ee2ab0a5e4b1)
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ec85c72e-5e9e-4b22-9d1d-cca3004a081a)
+
 
 
 TO FINISH THIS!!
@@ -54,6 +60,10 @@ Following the Samba username map script exploit we can see that by running the c
 
 
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned:
+- Dont forget to use whoami after gaining a shell to prove what user you are!
+- Finish enumerating services first and then move onto exploitation. 
 
 
 
