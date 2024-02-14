@@ -51,7 +51,7 @@ Anonymous login is allowed on the FTP server, however, no files were available a
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9bf641e5-5b77-4edc-8b9b-df0ac9b5f33a)
 
-The following exploits were run but they did not sucsessfully execute. 
+The following exploits were run but they did not sucsessfully execute and was not pursued any further. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/a8482228-a5d8-426e-a88d-9430bb4acbdf)
 
