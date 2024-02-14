@@ -57,7 +57,7 @@ The following exploits were run but they did not sucsessfully execute.
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **Samba 3.0.20**
+#### **4.1 - Samba 3.0.20**
 
 Following the Samba username map script exploit we can see that by running the command 'whoami' that we have gained root privileges without needing to escalate. 
 
