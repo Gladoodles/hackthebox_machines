@@ -1,4 +1,4 @@
-# HACK THE BOX: LAME 
+# 1.0 - HACK THE BOX: LAME 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e24cc444-abba-43ca-af87-98ad93bac192)
 
@@ -10,7 +10,7 @@
 
 **Steps to reproduce the attack**: Using NMAP to enumerate the services running on the host, called Lame. Access to the system was gained by running exploits using the Metasploit Framework for the Samba and ddistccd services resulting in root privileges. 
 
-## ENUMERATION
+## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
 |----------|--------------------|
 | 10.10.10.3 | TCP: 21, 22, 139, 445, 3632 |
@@ -19,9 +19,9 @@ The following NMAP scan was executed which discovered a number of open ports.
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/933e9f64-e0cf-4216-9eea-5b7a86fdacaa)
 
-## EXPLOITATION
+## 3.0 - EXPLOITATION
 
-##### **Samba 3.0.20**
+#### **3.1 - Samba 3.0.20**
 
 The /tmp and /IPC$ shares were not password protected and some files were downloaded, however, they did not yield any credentials. 
 
@@ -32,15 +32,28 @@ Using the Metasploit Framework we used the Samba "username map script" command e
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/34efd60a-3904-46db-bb83-ddabbc8c87f4)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/30032405-5c69-41b7-89d5-cb497e58d3dc)
+
+Running the command 'whoami' we can see that we have gained root privileges.
+
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9a52b04b-d393-476c-b827-d64a4d61419f)
+
+#### **3.2 - distccd**
+
+
 
 TO FINISH THIS!!
 
-## PRIVILEGE ESCALATION 
+## 4.0 - PRIVILEGE ESCALATION 
+
+#### **Samba 3.0.20**
+
+Following the Samba username map script exploit we can see that by running the command 'whoami' that we have gained root privileges without needing to escalate. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9a52b04b-d393-476c-b827-d64a4d61419f)
 
 
 
-## POST-EXPLOITATION 
+## 5.0 - POST-EXPLOITATION 
 
 
 
