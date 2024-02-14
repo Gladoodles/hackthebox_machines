@@ -45,9 +45,15 @@ Using Metasploit module distcc_exec we can gain a shell as a low privileged user
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ec85c72e-5e9e-4b22-9d1d-cca3004a081a)
 
+### **3.3 - vsftpd 2.3.4**
 
+Anonymous login is allowed on the FTP server, however, no files were available and we could not change directory. 
 
-TO FINISH THIS!!
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9bf641e5-5b77-4edc-8b9b-df0ac9b5f33a)
+
+The following exploits were run but they did not sucsessfully execute. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/a8482228-a5d8-426e-a88d-9430bb4acbdf)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
@@ -57,7 +63,7 @@ Following the Samba username map script exploit we can see that by running the c
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9a52b04b-d393-476c-b827-d64a4d61419f)
 
-
+TO FINISH THIS!!
 
 ## 5.0 - POST-EXPLOITATION 
 
