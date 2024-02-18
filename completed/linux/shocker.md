@@ -1,5 +1,7 @@
 # 1.0 - HACK THE BOX: [title]
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ef35205b-e4c5-49af-ad35-82211133b7c8)
+
 **Vulnerability Explination**: The Apache webserver is vulnerable to Shellshock (CVE-2014-6271). If environment variables are not properly sanitised before being executed remote attackers can execute arbitrary code by sending commands via HTTP requests. The pearl binary could be used to execute commands as the root user without providing a password (NOPASSWD).
 
 **Vilnerability Fix**: It is recommended that the system be updated (https://ubuntu.com/security/notices/USN-2362-1) to fix the Shellshock vulnerability. To fix the Perl binary vulnerability, remove the NOPASSWD directive for the user in the sudoers file (/etc/sudoers), requiring users to enter their password before executing privileged commands with sudo.
