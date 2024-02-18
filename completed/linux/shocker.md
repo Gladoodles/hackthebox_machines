@@ -1,6 +1,6 @@
 # 1.0 - HACK THE BOX: [title]
 
-**Vulnerability Explination**: 
+**Vulnerability Explination**: The Apache webserver is vulnerable to Shellshock (CVE-2014-6271). If environment variables are not properly sanitised before being executed remote attackers can execute arbitrary code by sending commands via HTTP requests.
 
 **Vilnerability Fix**: 
 
