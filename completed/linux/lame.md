@@ -1,6 +1,6 @@
 # 1.0 - HACK THE BOX: LAME 
 
-![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e24cc444-abba-43ca-af87-98ad93bac192)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8bd8a2d3-63cb-48f9-9fec-03bf31325c74)
 
 **Vulnerability Explination**: The SMB server is vulnerable to CVE-2007-2447 and when exploited allows RCE and a shell with root privileges. Guest login was also enabled on the /tmp and /IPC$ shares. The distccd service was also found to be vulnerable to CVE-2004-2687 allowing an unauthenticated user to create a shell as a low privilge user. The FTP server appeared to be vulnerable to CVE-2011-2523, however, the exploit did not execute properly but anonymous login was allowed. Following the exploitation of the distccd service it was discovered that the suid bit was set on the nmap binary which allows a user to run commands as root when running nmap interactively. 
 
