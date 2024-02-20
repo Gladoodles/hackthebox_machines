@@ -15,6 +15,33 @@
 |----------|--------------------|
 | 10.10.10.56 | TCP: 80, 2222 |
 
+The following NMAP scan was invoked which discovered two open ports. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/1c90605a-d62a-40ec-a5bc-cd7ad9748a1a)
+
+SSH on port 2222 was running an outdated version of openSSH, however, due to the limited exploits available for this version it was not persued further. 
+
+An exploit search for the Apache web server version 2.4.18 was performed but none were available. 
+
+#### **2.1 Port 80**
+
+Navigating to the webpage running on this port we are presented with a static page and a quick look at the source code shows very little information. The bug.jpg image was downloaded and checked for any hidden files but none was discovered. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/c7cf9dc0-5211-42bf-b683-271e866d7bfb)
+
+A gobuster scan of the website discovered a number of hidden directories, namely the /cgi-bin/ directory. If a file is found in this directory it could be vulnerable to CVE-204-6271 (Shellshock).
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/780ed8bf-ab7c-45f8-b3b3-b5294e98a9f5)
+
+A further gobuster scan for hidden files was done which discovered a file called 'user.sh', downloading this file showed it was a uptime test script. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e26926a5-7b42-4bb5-b9a8-b0233785ab48)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/89987e49-4ae6-44d3-b3c2-b7190eef75ea)
+
+To further enumerate whether a Shellshock exploit could be performed an NMAP script was run (http-shellshock) which confirmed it was.
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/330179d8-7c03-4c9d-b21d-ca970ec82ca0)
+
 ## 3.0 - EXPLOITATION
 
 #### **3.1 - [exploit]**
