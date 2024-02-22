@@ -44,10 +44,22 @@ To further enumerate whether a Shellshock exploit could be performed an NMAP scr
 
 ## 3.0 - EXPLOITATION
 
-#### **3.1 - [exploit]**
+#### **3.1 - Shellshock**
+
+Exploitation of this vulnerability was executed by sending a curl request to the /cgi-bin/user.sh file discovered in the enumeration process. Prior to sending the curl request a listener was set up on the attacking machine. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/1ebb423b-c98c-4a8a-a144-7d791507305b)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e341bf2e-bf38-4d03-b9b9-b963d5c86178)
+
+Upon executing the request we get a reverse shell as the user 'shelly'. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6aacc506-9314-4c6f-9a9d-1abc152f9319)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/0cffe30d-1b2d-434f-95cd-9c0ab150b3bc)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
 #### **4.1 - [exploit]**
 
 ## 5.0 - POST-EXPLOITATION 
+
+- Use id rather than 'whoami' because the account might have elevated privileges. 
