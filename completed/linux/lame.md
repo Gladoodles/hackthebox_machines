@@ -4,7 +4,7 @@
 
 **Vulnerability Explination**: The SMB server is vulnerable to CVE-2007-2447 and when exploited allows RCE and a shell with root privileges. Guest login was also enabled on the /tmp and /IPC$ shares. The distccd service was also found to be vulnerable to CVE-2004-2687 allowing an unauthenticated user to create a shell as a low privilge user. The FTP server appeared to be vulnerable to CVE-2011-2523, however, the exploit did not execute properly but anonymous login was allowed. Following the exploitation of the distccd service it was discovered that the suid bit was set on the nmap binary which allows a user to run commands as root when running nmap interactively. 
 
-**Vilnerability Fix**: Update all services to the latest versions. Disable anonymous login on the FTP service. SMB should also be configured with credentials and guest enumeration should be removed. The SUID bit should be removed from the namp binary. 
+**Vulnerability Fix**: Update all services to the latest versions. Disable anonymous login on the FTP service. SMB should also be configured with credentials and guest enumeration should be removed. The SUID bit should be removed from the namp binary. 
 
 **Severity**: Critical
 
