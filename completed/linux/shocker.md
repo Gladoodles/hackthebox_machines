@@ -71,5 +71,6 @@ A quick search on GTFO bins (https://gtfobins.github.io/gtfobins/perl/#sudo) pro
 
 ## 5.0 - POST-EXPLOITATION 
 
+Lessons learnt: 
 - Use id rather than 'whoami' because the account might have elevated privileges.
 - It's worthwhile searching whether each web directory discovered during the enumeration process has any exploits as I did not pick up on the /cgi-bin/ exploit for quite some time. 
