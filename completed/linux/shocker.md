@@ -58,8 +58,18 @@ Upon executing the request we get a reverse shell as the user 'shelly'.
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+#### **4.1 - sudo -l**
+
+Privilege escalation was simple, by running the command 'sudo -l' as the user shelly we can see that the /usr/bin/perl binary could be run as root without no password. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/eac23c6c-92f6-4f4c-a2be-6fb8437b8964)
+
+A quick search on GTFO bins (https://gtfobins.github.io/gtfobins/perl/#sudo) provided the command we need to be run to allow for privilege escalation to root, as shown below:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/5a16e5a5-52f1-4b49-8782-f41866563ecd)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6b12a4df-54d2-4654-bdf8-3c1d767a09fb)
 
 ## 5.0 - POST-EXPLOITATION 
 
-- Use id rather than 'whoami' because the account might have elevated privileges. 
+- Use id rather than 'whoami' because the account might have elevated privileges.
+- It's worthwhile searching whether each web directory discovered during the enumeration process has any exploits as I did not pick up on the /cgi-bin/ exploit for quite some time. 
