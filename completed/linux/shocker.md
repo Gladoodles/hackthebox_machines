@@ -2,9 +2,9 @@
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ef35205b-e4c5-49af-ad35-82211133b7c8)
 
-**Vulnerability Explination**: The Apache webserver is vulnerable to Shellshock (CVE-2014-6271). If environment variables are not properly sanitised before being executed remote attackers can execute arbitrary code by sending commands via HTTP requests. The pearl binary could be used to execute commands as the root user without providing a password (NOPASSWD).
+**Vulnerability Explanation**: The Apache webserver is vulnerable to Shellshock (CVE-2014-6271). If environment variables are not properly sanitised before being executed remote attackers can execute arbitrary code by sending commands via HTTP requests. The pearl binary could be used to execute commands as the root user without providing a password (NOPASSWD).
 
-**Vilnerability Fix**: It is recommended that the system be updated (https://ubuntu.com/security/notices/USN-2362-1) to fix the Shellshock vulnerability. To fix the Perl binary vulnerability, remove the NOPASSWD directive for the user in the sudoers file (/etc/sudoers), requiring users to enter their password before executing privileged commands with sudo.
+**Vulnerability Fix**: It is recommended that the system be updated (https://ubuntu.com/security/notices/USN-2362-1) to fix the Shellshock vulnerability. To fix the Perl binary vulnerability, remove the NOPASSWD directive for the user in the sudoers file (/etc/sudoers), requiring users to enter their password before executing privileged commands with sudo.
 
 **Severity**: Critical 
 
@@ -19,7 +19,7 @@ The following NMAP scan was invoked which discovered two open ports.
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/1c90605a-d62a-40ec-a5bc-cd7ad9748a1a)
 
-SSH on port 2222 was running an outdated version of openSSH, however, due to the limited exploits available for this version it was not persued further. 
+SSH on port 2222 was running an outdated version of openSSH, however, due to the limited exploits available for this version it was not pursued further. 
 
 An exploit search for the Apache web server version 2.4.18 was performed but none were available. 
 
@@ -71,6 +71,6 @@ A quick search on GTFO bins (https://gtfobins.github.io/gtfobins/perl/#sudo) pro
 
 ## 5.0 - POST-EXPLOITATION 
 
-Lessons learnt: 
+Lessons learned: 
 - Use id rather than 'whoami' because the account might have elevated privileges.
 - It's worthwhile searching whether each web directory discovered during the enumeration process has any exploits as I did not pick up on the /cgi-bin/ exploit for quite some time. 
