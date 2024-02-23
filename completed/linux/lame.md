@@ -8,7 +8,7 @@
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: Using NMAP to enumerate the services running on the host, called Lame. Access to the system was gained by running known exploits using the Metasploit Framework on the Samba and ddistccd services resulting in a shell on the target system. We also took advantage of the nmap binary which had the suid bit set allowing commands to be run with root privileges when using nmap interactively. 
+**Steps to reproduce the attack**: Using NMAP to enumerate the services running on the host, called Lame. Access to the system was gained by running known exploits using the Metasploit Framework on the Samba and ddistccd services, resulting in a shell on the target system. We also took advantage of the nmap binary which had the suid bit set, allowing commands to be run with root privileges when using nmap interactively. 
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
