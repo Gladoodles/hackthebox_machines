@@ -1,4 +1,4 @@
-# 1.0 - HACK THE BOX: Shocker
+# 1.0 - HACK THE BOX: SHOCKER
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ef35205b-e4c5-49af-ad35-82211133b7c8)
 
