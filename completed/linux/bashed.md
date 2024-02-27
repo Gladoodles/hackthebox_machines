@@ -2,7 +2,7 @@
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/026729e2-83a0-443d-a421-c2c83d2bd744)
 
-**Vulnerability Explanation**: 
+**Vulnerability Explanation**: The web server has unintentionly exposed a php script in the /dev/ web directory that allows an unauthenticated user to remotely execute bash commands. Furthermore, the www-data user can run commands as the 'scriptmanager' user without needing a password which created a path for privilege escalation to that user and then to the 'root' user via a missconfigured cron job. 
 
 **Vulnerability Fix**: 
 
