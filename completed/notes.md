@@ -2,7 +2,7 @@
 
 **Vulnerability Explination**: 
 
-**Vilnerability Fix**: 
+**Vulnerability Fix**: 
 
 **Severity**: 
 
