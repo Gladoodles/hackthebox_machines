@@ -1,5 +1,7 @@
 # 1.0 - HACK THE BOX: BASHED
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/026729e2-83a0-443d-a421-c2c83d2bd744)
+
 **Vulnerability Explination**: 
 
 **Vulnerability Fix**: 
