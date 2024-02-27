@@ -1,6 +1,6 @@
 # 1.0 - HACK THE BOX: [title]
 
-**Vulnerability Explination**: 
+**Vulnerability Explanation**: 
 
 **Vulnerability Fix**: 
 
