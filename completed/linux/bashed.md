@@ -8,12 +8,12 @@
 
 **Severity**: Critical.
 
-**Steps to reproduce the attack**: Enumeration was undertaken using NMAP which discovered the web server running on port 80. Web diirectories were then scanned using dirbuster which exposed the /dev/ directory and the .php scripts; navigating to this on a browser results in a web shell. Privilege escalation was then performed by taking advantage of the NOPASSWD value set for sudo commands on the www-data user by moving to the scriptmanager user shell. Escalation to the root user was then performed by editing a script to copy the /bin/bash binary to a new location with the setuid bit set
+**Steps to reproduce the attack**: Enumeration was undertaken using NMAP which discovered the web server running on port 80. Web diirectories were then scanned using dirbuster which exposed the /dev/ directory and the .php scripts; navigating to this on a browser results in a web shell. Privilege escalation was then performed by taking advantage of the NOPASSWD value set for sudo commands on the www-data user by moving to the scriptmanager user shell. Escalation to the root user was then performed by editing a script to copy the /bin/bash binary to a new location with the setuid bit set.
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
 |----------|--------------------|
-| 10.10.10.3 | TCP: 21, 22, 139, 445, 3632 |
+| 10.10.10.68 | TCP: 80 |
 
 ## 3.0 - EXPLOITATION
 
