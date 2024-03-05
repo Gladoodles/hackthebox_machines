@@ -15,6 +15,26 @@
 |----------|--------------------|
 | 10.10.10.68 | TCP: 80 |
 
+#### **2.1 - NMAP**
+
+Port 80 was discovered using NMAP:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/7fce3128-5737-4b70-814e-04687c2fcc44)
+
+#### **2.2 - nikto**
+
+A vulnerability scan was performed using nikto which flagged a number of interesting directories including other issues which were not explored during this test. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d5e3d5a4-9258-4e91-89f0-da1272b204e1)
+
+#### **2.3 - dirbuster** 
+
+With the nikto scan in mind a dirbuster scan was performed to brute-force web directories which exposed the phpbash.php web shell script. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/b6691ce0-57ad-46d1-8118-36b82e586362)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2401dd5f-e8b1-40fc-a17d-83af0ef68d10)
+
+
 ## 3.0 - EXPLOITATION
 
 #### **3.1 - [exploit]**
