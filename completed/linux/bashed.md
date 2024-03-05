@@ -83,3 +83,5 @@ This copies the /bin/bash binary to the /tmp/willthiswork location and sets the 
 ## 5.0 - POST-EXPLOITATION 
 
 Lessons learned: 
+- Discovery of the web shell was fairly quick but I need to explore further on how similar scripts can be exploited as my knowledge in this area is limited. 
+
