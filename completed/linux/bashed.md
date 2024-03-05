@@ -63,4 +63,6 @@ Catching the reverse shell and checking the user id we can see it was sucsessful
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6ee34a27-8da2-4132-ba2b-9d16912b551c)
 
+#### 4.3 - escalation to root**
+
 ## 5.0 - POST-EXPLOITATION 
