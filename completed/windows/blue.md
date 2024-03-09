@@ -4,7 +4,7 @@
 
 **Vulnerability Explanation**: The Windows machine is vulnerable to MS17-010 (Eternal Blue) which allows an attacker to take advantage of a flaw in the file-sharing protocol (SMBv1). By sending maliciously-crafted packets, the attacker can remotely install malware on a target, most commonly ransomware. These malicious packets execute a buffer overflow attack on a vulnerable service such as spoolsv.exe allowing the attacker to create a shell gaining control of a Windows system as the NT Authority user. 
 
-**Vulnerability Fix**: Install the MS17-010 security patch, see https://learn.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010. It is also possible to disable SMBv1 for a short-term fix, but it is not recommended as a solution to the vulnerability and the system should be patched. It was also noted that message signing is disabled. To increase SMB integrity and authenticity this should be enabled to prevent certain types of attacks, like man-in-the-middle attacks. 
+**Vulnerability Fix**: Install the MS17-010 security patch, see https://learn.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010. It is also possible to disable SMBv1 for a short-term fix, but it is not recommended as a long-term solution to the vulnerability and the system should be patched. It was also noted that message signing is disabled. To increase SMB integrity and authenticity this should be enabled to prevent certain types of attacks, like man-in-the-middle attacks. 
 
 **Severity**: Critical
 
