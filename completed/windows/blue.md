@@ -54,4 +54,5 @@ Malicious actors who gain control of a process with system privileges can potent
 ## 5.0 - POST-EXPLOITATION 
 
 Lessons learned:
-- Attempted to exploit this without Metasploit but ran into multiple issues when trying to run the python scripts, so I intend to revisit this. 
+- Attempted to exploit this without Metasploit but ran into multiple issues when trying to run the python scripts, so I intend to revisit this.
+- UPDATE: Managed to get the exploit to work without Metasploit using https://github.com/3ndG4me/AutoBlue-MS17-010. 
