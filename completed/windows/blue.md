@@ -29,13 +29,29 @@ Note: the SMB shares were also investigated but nothing out of the ordinary was 
 
 ## 3.0 - EXPLOITATION
 
-#### **3.1 - [exploit]**
+Exploitation was performed using Metasploit, specifically the exploit/windows/smb/ms17_010_psexecrgy/EternalChamption SMB Remote Windows Code Execution module (#1).
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d6563b00-0058-4a22-ad14-762d8e755b58)
+
+#### **3.1 - EternalBlue**
+
+After selecting the module, the following settings were applied:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/f138c331-6801-464e-9dc7-c8a9f8fdcab1)
+
+Running the exploit, we can see a reverse shell was obtained with NT authority system privileges:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9f88f208-73e1-4d0a-b980-707294088374)
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2499ffbc-1de2-4e50-8828-4ac950cc2cd1)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+Privilege escalation was not required as the exploit created a reverse shell with NT authority system privileges, this is the highest privilege level that can be run on a Windows machine. This allows unrestricted access to all aspects of the operating system. 
+
+Malicious actors who gain control of a process with system privileges can potentially install malware, steal sensitive information, or perform other malicious activities.
 
 ## 5.0 - POST-EXPLOITATION 
 
 Lessons learned:
-- Attempted to exploit this without Metasploit but ran into multiple issues when trying to run the python scripts so I intend to revisit this. 
+- Attempted to exploit this without Metasploit but ran into multiple issues when trying to run the python scripts, so I intend to revisit this. 
