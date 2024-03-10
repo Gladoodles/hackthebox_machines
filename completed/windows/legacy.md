@@ -10,7 +10,7 @@ Conficker is an exploit that targets a vulnerability in the Windows Server servi
 
 After the initial foothold, both vulnerabilities allow an attacker to access the system as the highest privileged user (NT AUTHORITY/SYSTEM) without needing to escalate. 
 
-**Vulnerability Fix**: Apply the relevent security patches from Microsoft, MS17-010 and MS08-067. 
+**Vulnerability Fix**: Apply the relevant security patches from Microsoft, MS17-010 and MS08-067. 
 
 **Severity**: Critical
 
