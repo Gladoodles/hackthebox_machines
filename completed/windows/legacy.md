@@ -14,7 +14,11 @@ After the initial foothold, both vulnerabilities allow an attacker to access the
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: 
+**Steps to reproduce the attack**: NMAP was utilised to scan for open ports and to carry out a vulnerability scan. 
+
+The MS08-067 vulnerability was first exploited by using a python script from the following GitHub Repository, https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py. A reverse shell payload was then crafted using msfvenom and the shellcode was inserted into the python script, once executed a shell was obtained on the machine. 
+
+The MS17-010 vulnerability was exploited using the Metasploit Framework by selecting the appropriate module and configuring options specific for this machine. The exploit was run using the default meterpreter reverse shell payload, which returned an interactive shell. 
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
