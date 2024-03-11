@@ -10,7 +10,7 @@ Conficker is an exploit that targets a vulnerability in the Windows Server servi
 
 After the initial foothold, both vulnerabilities allow an attacker to access the system as the highest privileged user (NT AUTHORITY/SYSTEM) without needing to escalate. 
 
-**Vulnerability Fix**: Apply the relevant security patches from Microsoft, MS17-010 and MS08-067. 
+**Vulnerability Fix**: Windows XP is no longer supported by Microsoft as of April 2014, it is recommended that this machine is upgraded to the latest version of Windows Server. In the meantime, apply the relevant security patches from Microsoft, MS17-010 and MS08-067. Additionally, message signing should be enabled. 
 
 **Severity**: Critical
 
@@ -24,6 +24,16 @@ The MS17-010 vulnerability was exploited using the Metasploit Framework by selec
 | **IP ADDRESS** | **OPEN PORTS** |
 |----------|--------------------|
 | 10.10.10.4 | TCP: 135, 139, 445 |
+
+#### **2.1 - NMAP Scans** 
+
+Port enumeration and vulnerbility scanning was performed using NMAP. The following scan identified open port numbers 135, 139, and 445. Furthermore, the scan also identified the operating system as Windows XP and that message signing is disabled. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/09e0dd8f-ed6d-4237-8450-dc3d5d6ac716)
+
+A vulnerability scan identified that the machine is suseptable to MS08-067 and MS17-010. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/7f8455ee-d4c3-4ca4-9423-c09968d01ea0)
 
 ## 3.0 - EXPLOITATION
 
