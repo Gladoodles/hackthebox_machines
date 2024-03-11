@@ -27,11 +27,11 @@ The MS17-010 vulnerability was exploited using the Metasploit Framework by selec
 
 #### **2.1 - NMAP Scans** 
 
-Port enumeration and vulnerbility scanning was performed using NMAP. The following scan identified open port numbers 135, 139, and 445. Furthermore, the scan also identified the operating system as Windows XP and that message signing is disabled. 
+Port enumeration and vulnerability scanning was performed using NMAP. The following scan identified open port numbers 135, 139, and 445. Furthermore, the scan also identified the operating system as Windows XP and that message signing is disabled. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/09e0dd8f-ed6d-4237-8450-dc3d5d6ac716)
 
-A vulnerability scan identified that the machine is suseptable to MS08-067 and MS17-010. 
+A vulnerability scan identified that the machine is susceptible to MS08-067 and MS17-010. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/7f8455ee-d4c3-4ca4-9423-c09968d01ea0)
 
