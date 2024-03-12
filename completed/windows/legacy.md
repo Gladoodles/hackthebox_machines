@@ -39,6 +39,13 @@ A vulnerability scan identified that the machine is susceptible to MS08-067 and 
 
 #### **3.1 - Conficker (MS08-067)**
 
+The exploit used for MS08-067 was obtained from https://raw.githubusercontent.com/jivoi/pentest/master/exploit_win/ms08-067.py. A reverse shell was generated using msfvenom and the output was replaced with the shellcode inside the python script. 
+
+
+ 
+
+
+
 #### **3.2 - EternalBlue (MS17-010)** 
 
 ## 4.0 - PRIVILEGE ESCALATION 
