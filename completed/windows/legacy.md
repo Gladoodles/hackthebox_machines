@@ -41,10 +41,20 @@ A vulnerability scan identified that the machine is susceptible to MS08-067 and 
 
 The exploit used for MS08-067 was obtained from https://raw.githubusercontent.com/jivoi/pentest/master/exploit_win/ms08-067.py. A reverse shell was generated using msfvenom and the output was replaced with the shellcode inside the python script. 
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/1b107596-fa8b-41f0-bb53-13c84abade34)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/0ff97e87-677c-472e-a8c9-e3c1f322f1aa)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/3f719d95-7ad3-413e-87f8-58e4aa3b830a)
 
- 
+With the shellcode in place, the python script was executed using the following command:
+```text
+python3 ms08-067.py 10.10.10.4 445
+```
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/a48ea28e-4b34-4b4b-9309-fe5055836668)
 
+This retuned a shell on the machine with elevated privileges. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/a1b48799-477c-47e2-8552-43a8cb8ce51f)
 
 #### **3.2 - EternalBlue (MS17-010)** 
 
