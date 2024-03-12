@@ -60,6 +60,6 @@ This retuned a shell on the machine with elevated privileges.
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+Privilege escalation was not required, as both exploits provide elevated privileges when executed successfully.
 
 ## 5.0 - POST-EXPLOITATION 
