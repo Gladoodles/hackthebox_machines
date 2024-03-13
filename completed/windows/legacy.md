@@ -58,8 +58,19 @@ This retuned a shell on the machine with elevated privileges.
 
 #### **3.2 - EternalBlue (MS17-010)** 
 
+Using Metasploit the ms17_010_psexec module was select and configured to target the machine with the following options:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e00fff7a-bc39-4938-b880-d607987353c6)
+
+Upon execution, this returned a shell with elevated privileges. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/857f9627-f0d5-467b-9268-4c1501b7bf62)
+
 ## 4.0 - PRIVILEGE ESCALATION 
 
 Privilege escalation was not required, as both exploits provide elevated privileges when executed successfully.
 
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned: 
+- Could not get the MS17-010 exploit to work without Metasploit with the python scripts used on other machines, this will need to be revisited. 
