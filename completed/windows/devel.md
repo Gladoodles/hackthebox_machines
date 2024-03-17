@@ -10,7 +10,9 @@ Furthermore, the machine is running an end-of-life operating system (Windows 7 E
 
 **Severity**: Critical.
 
-**Steps to reproduce the attack**: 
+**Steps to reproduce the attack**: Enumeration of open ports was undertaken using NMAP. Additional enumeration was performed using dirbuster to identify web directories. With anonymous login possible on port 21 a test.txt document was uploaded and then by navigating to the webpage we confirmed the location of the ftp folder. Knowing the web server was running an IIS based server from the NMAP scan and the default webpage display, a reverse shell .aspx file was uploaded to the ftp server. Creating a netcat listener and triggering the reverse shell by navigating to it on the IIS web server, we gained access to the system. 
+
+By enumerating the system information, a search online identified a vulnerability on the machine (CVE-2011-1249). By compiling the exploit and then transferring it to the Windows machine, the exploit was run, and privilege escalation was achieved to the system user.  
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
