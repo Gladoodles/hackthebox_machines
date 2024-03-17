@@ -1,5 +1,7 @@
 # 1.0 - HACK THE BOX: DEVEL
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ed9f0ff9-12c5-4566-88a4-9c9ac8e16f30)
+
 **Vulnerability Explanation**: The machine was hosting an IIS web server with a misconfigured FTP service. The FTP service allowed anonymous login with read/write capabilities, this can allow threat actors to upload malicious code and execute it by browsing to the file location. 
 
 Furthermore, the machine is running an end-of-life operating system (Windows 7 Enterprise) with version (6.1.7600, build 7600) which is vulnerable to CVE-2011-1249, as detailed in Microsoft Security Bulletin MS11-046. By crafting an application which exploits the Windows Ancillary Function Driver (AFD), it is possible for an attacker to elevate their privileges to the nt authority/system user, allowing full control of the machine. 
