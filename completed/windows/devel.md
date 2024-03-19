@@ -35,11 +35,11 @@ Browsing to the webpage we get the default welcome page.
 
 #### **2.2 - FTP** 
 
-Connecting to the FTP srvice using anonymous credentials we can see it contains iisstart.htm and welcome.png files. 
+Connecting to the FTP service using anonymous credentials we can see it contains iisstart.htm and welcome.png files. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/f1c9875a-623e-422f-8899-52ff73aceb55)
 
-Based on the files available we have can see the FTP folder location is shared with the IIS service but to confirm this a test.txt file was uploaded. Navigating to http://devel.htb/test.txt confirmed the upload location. 
+Based on the files available, we have can see the FTP folder location is shared with the IIS service but to confirm this a test.txt file was uploaded. Navigating to http://devel.htb/test.txt confirmed the upload location. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/bdfcaadc-fde7-4691-8488-05ef48339428)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/dfd3b7a1-8b82-41f7-9386-0ac3cd640280)
