@@ -15,9 +15,34 @@ Furthermore, the machine is running an end-of-life operating system (Windows 7 E
 By enumerating the system information, a search online identified a vulnerability on the machine (CVE-2011-1249). By compiling the exploit and then transferring it to the Windows machine, the exploit was run, and privilege escalation was achieved to the system user.  
 
 ## 2.0 - ENUMERATION
+
 | **IP ADDRESS** | **OPEN PORTS** |
 |----------|--------------------|
 | 10.10.10.5 | TCP: 21, 80 |
+
+An NMAP scan was conducted which identified two ports, a ftp server on port 21 which allowed anonymous login and an IIS web server which was running on port 80. 
+
+#### **2.1 - Dirbuster** 
+
+A dirbuster scan was undertaken to brute-force web directories based on a list available from the webpage detailed below, this yielded limited results.
+- https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/iis-internet-information-services
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/528814b7-2489-4702-858d-1d08e1f4add0)
+
+Browsing to the webpage we get the default welcome page. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/bc24f3e2-b9f6-4ac1-846f-4986da1ae3a8)
+
+#### **2.2 - FTP** 
+
+Connecting to the FTP srvice using anonymous credentials we can see it contains iisstart.htm and welcome.png files. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/f1c9875a-623e-422f-8899-52ff73aceb55)
+
+Based on the files available we have can see the FTP folder location is shared with the IIS service but to confirm this a test.txt file was uploaded. Navigating to http://devel.htb/test.txt confirmed the upload location. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/bdfcaadc-fde7-4691-8488-05ef48339428)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/dfd3b7a1-8b82-41f7-9386-0ac3cd640280)
 
 ## 3.0 - EXPLOITATION
 
