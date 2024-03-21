@@ -71,3 +71,6 @@ It is then transferred to the 'Temp' directory on the target machine by setting 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/cb6da945-7d5d-4041-aef0-7822f6695009)
 
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned:
+- Attempted to use tools to parse the systeminfo into so that potential expoits could be found but the tools would often not work. Simply searching the OS version on google achieved the same results.
