@@ -46,7 +46,11 @@ Based on the files available, we have can see the FTP folder location is shared 
 
 ## 3.0 - EXPLOITATION
 
-#### **3.1 - [exploit]**
+#### **3.1 - Reverse Shell** 
+
+As discovered in the enumeration phase, we can see it is possible to upload a file to the FTP service and then navigate to it via the web service the machine is running. Knowing this, a shell.aspx reverse shell payload was generated using msfvenom, then logging back into the FTP service the payload was uploaded. Starting a netcat listener and then visit the web-directory http://devel.htb/shell.aspx/ we obtain a reverse shell. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e7059207-3404-4a50-93a6-56116768bfb3)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
