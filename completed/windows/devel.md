@@ -73,4 +73,4 @@ It is then transferred to the 'Temp' directory on the target machine by setting 
 ## 5.0 - POST-EXPLOITATION 
 
 Lessons learned:
-- Attempted to use tools to parse the systeminfo into so that potential expoits could be found but the tools would often not work. Simply searching the OS version on google achieved the same results.
+- Attempted to use tools to parse the systeminfo into so that potential exploits could be found, but the tools would often not work. Simply searching the OS version on Google achieved the same results.
