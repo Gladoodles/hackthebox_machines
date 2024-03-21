@@ -54,6 +54,20 @@ As discovered in the enumeration phase, we can see it is possible to upload a fi
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+Additional enumeration was performed using the command 'systeminfo'. After a quick search using google a privilege escalation exploit is available from Exploit DB for this particular version of Windows, https://www.exploit-db.com/exploits/40564. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/cd02bdc7-14b2-41f3-9a14-1f5ce4c25b64)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6e287585-133f-4926-aea4-7d8c7f592deb)
+
+#### **4.1 - MS11-046**
+
+After downloading the exploit, it is compiled locally on the attacking machine and renamed to exp.exe. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2b090f11-07a2-4f7d-9e6a-22c04fa8f1db)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/ea086938-7941-4883-af5e-f8320bd2fd0f)
+
+It is then transferred to the 'Temp' directory on the target machine by setting up a temporary smb share on the attacking device and requesting the exploit file 'exp.exe'. Once uploaded it is executed by simply typing 'exp.exe' which shows a successful escalation to the 'nt authority/system' user. From here we have full access of the system.
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/cb6da945-7d5d-4041-aef0-7822f6695009)
 
 ## 5.0 - POST-EXPLOITATION 
