@@ -8,7 +8,7 @@
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: 
+**Steps to reproduce the attack**: Enumeration was performed using NMAP to discover the web service running on port 80. 
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
