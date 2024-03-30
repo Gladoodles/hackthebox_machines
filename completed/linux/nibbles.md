@@ -8,7 +8,9 @@
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: Enumeration was performed using NMAP to discover the web service running on port 80. 
+**Steps to reproduce the attack**: Enumeration was performed using NMAP to discover the web service running on port 80, then a manual review of the page source revealed the /nibbleblog directory. Knowing this, additional web directory brute forcing was done using dirbuster to reveal the admin.php log in page. After a few attempts of guessing the password, it was possible to log in and run the exploit necessary to obtain a reverse shell into the machine. 
+
+Privilege escalation was then undertaken by exploiting the monitor.sh script by inserting a command to create another reverse shell connection, but this time with elevated privileges as the script could be run as sudo without requiring a password.
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
