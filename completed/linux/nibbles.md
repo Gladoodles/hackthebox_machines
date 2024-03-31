@@ -17,6 +17,22 @@ Privilege escalation was then undertaken by exploiting the monitor.sh script by 
 |----------|--------------------|
 | 10.10.10.75 | TCP: 22, 80 |
 
+#### **2.1 - NMAP**
+
+An NMAP scan identified two open ports, 80 and 22.
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/59b1870c-4ab8-427e-81b9-57909c95529f)
+
+#### **2.2 - port 80 & dirbuster**
+
+Navigating to the web service running on port 80 we are greeted with a simple webpage displaying 'Hello world!" but when viewing the page source we can see a comment about another web directory named /nibbleblog/. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/671c20b7-8aa4-4f78-a3ba-85cea23733a6)
+
+With this knowledge a quick web crawl scan was performed using dirbuster which identified a number of directories.
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/38ba6028-0149-4a9f-9910-1c3ca6a0c7fe)
+
 ## 3.0 - EXPLOITATION
 
 #### **3.1 - [exploit]**
