@@ -43,15 +43,25 @@ Once logged into the admin page we were able to identify the current version (4.
 
 After accessing the admin page and identifying nibbleblog was running on version 4.0.3, a search on Exploit-DB shows this version is suseptable to an exploit which allows a threat actor to upload a malicious file. 
 
-The exploit was obtained from https://github.com/dix0nym/CVE-2015-6967 and then a reverse shell payload was crafted using msfvenom. A listener was set up and the url, username, password and payload information was parsed into the script and executed, which promptly provided a connection back into the system. 
+The exploit was obtained from https://github.com/dix0nym/CVE-2015-6967 and then a reverse shell payload was crafted using msfvenom. A listener was set up and the url, username, password and payload information was parsed into the script and executed, which promptly provided a connection back into the system as the user 'nibbler'.
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/33b2fd4b-d7fc-4a6a-bc83-c618a06aeff0)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/9e7c0d9e-6b3c-4831-93f7-727f79f7974c)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/82548cd7-8ab2-4277-8664-64c3026363c8)
 
-
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+#### **4.1 - sudo - NOPASSWD**
+
+After a bit of manual enumeration we were able to identify with the user of the sudo -l command that the current user, nibbler could execute the following command with sudo privileges:
+
+- /home/nibbler/personal/stuff/monitor.sh
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/e26dcf2e-b3d1-42f3-ad85-ed85022d1ac0)
+
+Since we had read/write privileges already on this script the following command was appended to the existing monitor.sh script and a listener created then executed with sudo privileges. This provided a connection back to our attacking machine as the root user. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/b5177833-7963-45cd-ba79-bf45a696dd38)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/f08914c3-1360-477b-a8e9-d775e0d800b5)
 
 ## 5.0 - POST-EXPLOITATION 
