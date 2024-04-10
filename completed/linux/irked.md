@@ -8,7 +8,7 @@
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: 
+**Steps to reproduce the attack**: Enumeration was performed using nmap to first discover the open ports. After connecting to one of the IRC ports, it was then possible to enumerate the software version (3.2.8.1) to search for available exploits. Using metasploit, a payload was configured and the exploit run to first gain access as the 'ircd' user. As this user, the .backup file was discovered within djmardov's home directory which exposed a password that was used to extract another password hidden within the irked.jpg file located on the main webpage. This password was then used to ssh to djmardov's account. A binary called viewuser (under development) was discovered and by creating a file called listusers in the /tmp/ directory and inserting code into it a reverse shell connection was made with root privileges.
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
