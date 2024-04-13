@@ -64,7 +64,7 @@ This password could then be used to extract another password hidden using stegan
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8186dc9c-99ec-4214-8624-3eab7f71bf98)
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/287de04e-19e6-4ce5-bdba-e7998c658159)
 
-With this new password it was possible to log into djmardov's account using SSH. 
+With this new password, it was possible to log into djmardov's account using SSH. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/db7884a8-f51d-425e-81e1-96d9cfab90c8)
 
@@ -74,7 +74,13 @@ After some enumeration the binary named 'viewuser' was discovered which appeared
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/0c3e649a-23b7-49c1-a7e0-cb49e0c48aee)
 
+(screenshots missing)
 
+This binary, when executed looked for a directory named '/tmp/listusers' which was non-existent. So by creating a file called 'listusers' in the /tmp/ directory, we could then make this file executable with the 'chmod +x listusers' command and insert reverse shell code into it, or any other command for that matter. Since djmardov was part of the sudoers group, we could execute a reverse shell with root privileges. 
 
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2d1dfab8-ef2a-4ad2-9c74-feb08454c132)
 
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned:
+- Be more diligent with documenting steps when performing exploits, as I had not taken screenshots of the privilege escalation to root. 
