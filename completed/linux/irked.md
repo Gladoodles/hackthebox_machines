@@ -51,6 +51,30 @@ Upon execution of the exploit it was possible to obtain a reverse shell on the m
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+Escalation to root does not seem possible as the ircd user, however, it was possible to gain root privileges with djmardov user account. 
+
+#### **4.1 - djmardov**
+
+Escalation to the djmardov user was possible because as the ircd user can access djmardov home directory which contained a .backup file which contained a password. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d610e5f1-228d-44bd-b743-017023917c1d)
+
+This password could then be used to extract another password hidden using steganography on the irked.jpg image displayed on the website. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8186dc9c-99ec-4214-8624-3eab7f71bf98)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/287de04e-19e6-4ce5-bdba-e7998c658159)
+
+With this new password it was possible to log into djmardov's account using SSH. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/db7884a8-f51d-425e-81e1-96d9cfab90c8)
+
+#### **4.2 - root**
+
+After some enumeration the binary named 'viewuser' was discovered which appeared to be a programme in development. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/0c3e649a-23b7-49c1-a7e0-cb49e0c48aee)
+
+
+
 
 ## 5.0 - POST-EXPLOITATION 
