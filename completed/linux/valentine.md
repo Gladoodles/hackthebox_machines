@@ -6,7 +6,7 @@
 
 Furthermore, the tmux service was running as the root user, but it had the 'hype' user group assigned to it with r+w permissions. This allows anyone within the 'hype' group to make changes and hijack sessions running with root privileges. 
 
-**Vulnerability Fix**: Update the OpenSSL version to the latest version and remove the 'hype' group from the tmux service. 
+**Vulnerability Fix**: Update OpenSSL to the latest version and remove the 'hype' group from the tmux service. 
 
 **Severity**: Critical
 
