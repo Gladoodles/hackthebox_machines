@@ -4,6 +4,8 @@
 
 **Vulnerability Explanation**: The machine is vulnerable to a security flaw which exploits the OpenSSL cryptographic software library, known as Heartbleed (CVE-2014-0346). This can allow remote attackers access to sensitive information by sending malformed packets to a vulnerable server to return random blocks of memory from its process space. Whilst random, the attacker may get 'lucky' or obtain enough information from continuous attacks to gather sensitive information such as usernames, passwords or cryptographic keys. 
 
+Furthermore, the tmux service was running as the root user, but it had the 'hype' user group assigned to it with r+w permissions. This allows anyone within the 'hype' group to make changes and hijack sessions running with root privileges. 
+
 **Vulnerability Fix**: 
 
 **Severity**: Critical
