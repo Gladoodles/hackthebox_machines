@@ -8,7 +8,7 @@
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: 
+**Steps to reproduce the attack**: The first step was to enumerate open services running on the machine using NMAP, additionally a vulnerability scan was performed. Then, using dirbuster to brute force web directories on port 80 and 443 the 'dev' directory was discovered along with the SSH key (password protected) and notes.txt files. Identified by the vulnerability scan, the heartbleed exploit was then used to find the password for the SSH key. It was then possible to log into the machine via SSH as the 'hype' user. With a foothold on the machine, it was then possible to enumerate running services and bash history to see a tmux session running with root privileges. Since tmux had 'hype' group permissions, and the user 'hype' is part of that group with r+w permissions it was possible to connect to the running tmux instance, with root privileges allowing full take over of the machine. 
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
