@@ -43,7 +43,23 @@ An attempt was made to log into the SSH service running on the machine but the p
 
 ## 3.0 - EXPLOITATION
 
-#### **3.1 - [exploit]**
+#### **3.1 - Heartbleed**
+
+A search for 'Heartbleed' on searchsploit displayed multiple downloadable exploits, in which the following was downloaded:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/27ccdf88-b91e-44c4-984c-c497b9adabd4)
+
+By simply running the python script and directing it to the website, after a few attempts we find a string of text which looks like it may of been encoded with base64. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/efac99be-bd6c-4cdb-966f-f4b3d4f41a25)
+
+Decoding the string we are presented with the following string 'heartbleedbelievethehype':
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/3928b4b2-f858-45f0-a947-63e06d07e431)
+
+It was surmised that this string was the password for the SSH key previously discovered. After attempting to sign in with they key an 'no mutual signature supported' error was displayed but by using the -o PubkeyAcceptedKeyTypes=+ssh-rsa option access to the machine was possible as te 'hype' user:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d6168054-5c4c-4319-954e-850652aa5074)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
