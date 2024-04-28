@@ -39,6 +39,7 @@ By converting the hex to ASCII it releaved the SSH private key:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8e39f6e7-97e7-4e44-91a3-af9f42c293b0)
 
+An attempt was made to log into the SSH service running on the machine but the private key was protected with a password. 
 
 ## 3.0 - EXPLOITATION
 
