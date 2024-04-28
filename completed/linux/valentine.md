@@ -17,6 +17,29 @@ Furthermore, the tmux service was running as the root user, but it had the 'hype
 |----------|--------------------|
 | 10.10.11.13 | TCP: 22, 80, 443 |
 
+The above ports were discovered using NMAP. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/75d09006-57e2-48b0-8129-e877c885f0d2)
+
+Furthermore a vulnerability scan was undertaken which indicated that the website was vulnerable to the SSL-Heartbleed exploit:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/fe46d330-d7fd-4c63-8ce2-0442f8f536bb)
+
+#### **2.1 - dirbuster **
+
+Following discovery of port 80 and 443 a manual enumeration of the website just revealed a basic webpage with little information. Using dirbuster, a brute force of web directories was undertaken which exposed an SSH key called 'hype_key' and a notes.txt file. It was assumed 'hype' was the username for the key. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/953d447c-f913-466a-ad5c-4ab6b15284a6)
+
+The notes.txt file did not contain much information of use but the hype_key was in a hex format:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/29378279-5484-4e58-938b-2d69ca960c0d)
+
+By converting the hex to ASCII it releaved the SSH private key:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8e39f6e7-97e7-4e44-91a3-af9f42c293b0)
+
+
 ## 3.0 - EXPLOITATION
 
 #### **3.1 - [exploit]**
