@@ -80,3 +80,6 @@ Because tmux is a terminal multiplexer it allows multiple terminals to be create
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/31911f25-4b0a-4a41-947b-a3a6f703012c)
 
 ## 5.0 - POST-EXPLOITATION 
+
+Lessons learned:
+- Dont forget to use the easy win enumeration commands like 'history'!
