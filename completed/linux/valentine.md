@@ -10,7 +10,7 @@ Furthermore, the tmux service was running as the root user, but it had the 'hype
 
 **Severity**: Critical
 
-**Steps to reproduce the attack**: The first step was to enumerate open services running on the machine using NMAP, additionally a vulnerability scan was performed. Then, using dirbuster to brute force web directories on port 80 and 443 the 'dev' directory was discovered along with the SSH key (password protected) and notes.txt files. Identified by the vulnerability scan, the heartbleed exploit was then used to find the password for the SSH key. It was then possible to log into the machine via SSH as the 'hype' user. With a foothold on the machine, it was then possible to enumerate running services and bash history to see a tmux session running with root privileges. Since tmux had 'hype' group permissions, and the user 'hype' is part of that group with r+w permissions it was possible to connect to the running tmux instance, with root privileges allowing full take over of the machine. 
+**Steps to reproduce the attack**: The first step was to enumerate open services running on the machine using NMAP, additionally a vulnerability scan was performed. Then, using dirbuster to brute force web directories on port 80 and 443 the 'dev' directory was discovered along with the SSH key (password protected) and notes.txt files. Identified by the vulnerability scan, the heartbleed exploit was then used to find the password for the SSH key. It was then possible to log into the machine via SSH as the 'hype' user. With a foothold on the machine, it was then possible to enumerate running services and bash history to see a tmux session running with root privileges. Since tmux had 'hype' group permissions, and the user 'hype' is part of that group with r+w permissions, it was possible to connect to the running tmux instance, with root privileges allowing full take over of the machine. 
 
 ## 2.0 - ENUMERATION
 | **IP ADDRESS** | **OPEN PORTS** |
@@ -21,21 +21,21 @@ The above ports were discovered using NMAP.
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/75d09006-57e2-48b0-8129-e877c885f0d2)
 
-Furthermore a vulnerability scan was undertaken which indicated that the website was vulnerable to the SSL-Heartbleed exploit:
+Furthermore, a vulnerability scan was undertaken, which indicated that the website was vulnerable to the SSL-Heartbleed exploit:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/fe46d330-d7fd-4c63-8ce2-0442f8f536bb)
 
 #### **2.1 - dirbuster **
 
-Following discovery of port 80 and 443 a manual enumeration of the website just revealed a basic webpage with little information. Using dirbuster, a brute force of web directories was undertaken which exposed an SSH key called 'hype_key' and a notes.txt file. It was assumed 'hype' was the username for the key. 
+Following discovery of port 80 and 443 a manual enumeration of the website just revealed a basic webpage with little information. Using dirbuster, a brute force of web directories was undertaken, which exposed an SSH key called 'hype_key' and a notes.txt file. It was assumed 'hype' was the username for the key. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/953d447c-f913-466a-ad5c-4ab6b15284a6)
 
-The notes.txt file did not contain much information of use but the hype_key was in a hex format:
+The notes.txt file did not contain much information of use, but the hype_key was in a hex format:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/29378279-5484-4e58-938b-2d69ca960c0d)
 
-By converting the hex to ASCII it releaved the SSH private key:
+By converting the hex to ASCII it revealed the SSH private key:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/8e39f6e7-97e7-4e44-91a3-af9f42c293b0)
 
@@ -49,20 +49,34 @@ A search for 'Heartbleed' on searchsploit displayed multiple downloadable exploi
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/27ccdf88-b91e-44c4-984c-c497b9adabd4)
 
-By simply running the python script and directing it to the website, after a few attempts we find a string of text which looks like it may of been encoded with base64. 
+By simply running the python script and directing it to the website, after a few attempts we find a string of text which looks like it may have been encoded with base64. 
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/efac99be-bd6c-4cdb-966f-f4b3d4f41a25)
 
-Decoding the string we are presented with the following string 'heartbleedbelievethehype':
+Decoding the string, we are presented with the following string 'heartbleedbelievethehype':
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/3928b4b2-f858-45f0-a947-63e06d07e431)
 
-It was surmised that this string was the password for the SSH key previously discovered. After attempting to sign in with they key an 'no mutual signature supported' error was displayed but by using the -o PubkeyAcceptedKeyTypes=+ssh-rsa option access to the machine was possible as te 'hype' user:
+It was surmised that this string was the password for the SSH key previously discovered. After attempting to sign in with the key a 'no mutual signature supported' error was displayed but by using the -o PubkeyAcceptedKeyTypes=+ssh-rsa option access to the machine was possible as the 'hype' user:
 
 ![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/d6168054-5c4c-4319-954e-850652aa5074)
 
 ## 4.0 - PRIVILEGE ESCALATION 
 
-#### **4.1 - [exploit]**
+#### **4.1 - Improper Group Permissions - Tmux**
+
+Following manual enumeration of the machine and running the 'history' command, it was evident that the hype user was executing commands for a tmux process. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/2ce1b841-995b-45dd-8171-9ceab2fc4595)
+
+This was confirmed by running the 'ps aux' command and by reviewing the file permissions we can see that this application has read + write access for the 'hype' group. 
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/c849507e-a615-495d-831b-edc7ddd25440)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/70f25deb-940c-4dba-b162-47a35bdae715)
+
+Because tmux is a terminal multiplexer it allows multiple terminals to be created and in this case it was running in the background with the privilege level of the owner, which was root. By using the command 'tmux -S /.devs/dev_sess' we can connect to the session with root privileges:
+
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/6ff65bce-49b6-4062-af6b-74fba9707b64)
+![image](https://github.com/Gladoodles/hackthebox_machines/assets/96867367/31911f25-4b0a-4a41-947b-a3a6f703012c)
 
 ## 5.0 - POST-EXPLOITATION 
